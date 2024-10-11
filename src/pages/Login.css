@@ -119,16 +119,16 @@
 /* Signup link */
 .signup-link {
   background: none;
-  color: #a32657; /* Base color */
+  color: #a32657; 
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.3s ease; /* Smooth transition for color change */
+  transition: color 0.3s ease; 
 }
 
 .signup-link:hover {
-  color: #fc8c63; /* Color change on hover */
-  text-decoration: none; /* Optionally remove underline on hover */
+  color: #fc8c63; 
+  text-decoration: none; 
 }
 
 /* Responsive design for smaller screens */

@@ -68,10 +68,39 @@ h3 {
   font-size: 16px;
   color: #333;
   text-align: center;
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Separator line under 'Tingkat Kesulitan' */
+.separator-line {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 15px 0;
+}
+
+/* Timer container with centered content */
+.timer-container {
+  text-align: center;
+  width: 100%;
+}
+
+/* Timer label text */
+.timer-label {
+  font-size: 24px;
+  color: #263238;
+  margin-bottom: 5px;
+}
+
+/* Timer countdown in bold and larger font */
+.timer-countdown {
+  font-size: 32px;
+  font-weight: bold;
+  color: #a32657;
 }
 
 /* Answer Button */

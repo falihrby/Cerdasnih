@@ -35,7 +35,7 @@ const Navbar = () => {
         </NavLink>
         <div className="navbar-menu">
           <ul className="navbar-nav">
-            {isHomePage && (  // Only render the "Masuk" button on the homepage
+            {isHomePage && (  
               <li className="nav-item">
                 <button onClick={handleLoginClick} className="nav-button">Masuk</button>
               </li>

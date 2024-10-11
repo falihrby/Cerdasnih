@@ -24,7 +24,6 @@ const CategorySelection = () => {
         setLoading(false);
       })
       .catch(error => {
-        console.error('Error fetching categories:', error);
         setError('Failed to load categories. Please try again later.');
         setLoading(false);
       });
@@ -50,14 +49,7 @@ const CategorySelection = () => {
       const apiURL = `https://opentdb.com/api.php?amount=30&category=${selectedCategory}&difficulty=${difficulty}`; 
       fetchQuestionsWithRetry(apiURL)
         .then(questions => {
-          console.log('Fetched Questions:', questions);  // Add this log
           const selectedCategoryName = categories.find(cat => cat.id === parseInt(selectedCategory)).name;
-          console.log('Navigating to quiz with state:', {
-            categoryId: selectedCategory,
-            difficulty,
-            questions,
-            categoryName: selectedCategoryName,
-          });
           navigate('/quiz', {
             state: {
               categoryId: selectedCategory,
@@ -68,7 +60,6 @@ const CategorySelection = () => {
           });
         })
         .catch(error => {
-          console.error('Error fetching questions:', error);
           setError('Failed to load quiz. Please try again.');
         });
     } else {
@@ -94,22 +85,22 @@ const CategorySelection = () => {
     <div style={backgroundStyle}>
       <div className="category-selection-container">
         {loading ? (
-          <div className="loading-message">Loading categories...</div>
+          <div className="loading-message">Memuat kategori...</div>
         ) : error ? (
           <div className="error-message">{error}</div>
         ) : (
           <div className="category-selection-card">
-            <h1 className="category-selection-header">Choose Your Category</h1>
-            <p className="login-subtext">Test your knowledge.</p>
+            <h1 className="category-selection-header">Tentukan pilihan kamu</h1>
+            <p className="login-subtext">Siap untuk menguji pengetahuanmu.</p>
 
             <div className="category-selection-form">
-              <label className="category-selection-label">Category</label>
+              <label className="category-selection-label">Kategori</label>
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="category-selection-select category-selection-dropdown"
               >
-                <option value="" disabled hidden>Select a category</option>
+                <option value="" disabled hidden>pilih kategori</option>
                 {categories.map(category => (
                   <option key={category.id} value={category.id}>
                     {category.name}
@@ -117,7 +108,7 @@ const CategorySelection = () => {
                 ))}
               </select>
 
-              <label className="category-selection-label">Difficulty</label>
+              <label className="category-selection-label">Tingkat kesulitan</label>
               <select 
                 value={difficulty} 
                 onChange={(e) => setDifficulty(e.target.value)}
@@ -129,10 +120,10 @@ const CategorySelection = () => {
               </select>
 
               <button onClick={handleStartQuiz} className="category-selection-button">
-                Start Quiz
+                Mulai Kuis
               </button>
 
-              <p className="category-prompt">Time starts after pressing the button, and questions move forward after selecting an answer.</p>
+              <p className="category-prompt">Waktu dimulai saat tombol ditekan dan soal langsung berpindah setelah memilih jawaban.</p>
             </div>
           </div>
         )}
