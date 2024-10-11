@@ -1,10 +1,19 @@
+/* Base styling for the app */
 .App {
   text-align: center;
+  margin: 0;
+  padding: 20px; /* Added padding */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  margin-bottom: 20px; /* Add margin for spacing below the logo */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,10 +31,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 40px; /* Added padding for content spacing */
+  box-sizing: border-box;
 }
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px; /* Added margin for spacing */
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +49,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Additional global styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Light background color */
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600; /* Semi-bold */
+}
+
+p {
+  font-weight: 400; /* Regular */
+}
+
+/* Utility classes for margins and padding */
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
 }

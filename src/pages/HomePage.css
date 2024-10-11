@@ -1,0 +1,116 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* General Container Styling */
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Styling the image */
+.quiz-image {
+  width: 300px;
+}
+
+/* Styling class mulai */
+.mulai {
+  font-weight: 500;
+  color: #a32657;
+}
+
+/* Text below the image */
+.quiz-text {
+  margin: 5px;
+  font-size: 26px;
+  color: #263238;
+  font-weight: 600;
+  line-height: 36px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Styling the start button */
+.start-button {
+  background-color: #a32657;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 15px;
+}
+
+.start-button:hover {
+  background-color: #fc8c63;
+  transform: scale(1.05);
+}
+
+/* Instruction text below the button */
+.start-instruction {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #263238;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Dynamic word styling */
+.dynamic-word {
+  color: #a32657;
+  font-weight: 700;
+}
+
+/* Mobile Responsive Design */
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .quiz-image {
+    width: 250px; /* Smaller image on mobile */
+  }
+
+  .quiz-text {
+    font-size: 20px; /* Smaller font size on mobile */
+    line-height: 28px;
+  }
+
+  .start-button {
+    padding: 8px 20px; /* Adjust button padding for smaller screen */
+  }
+
+  .start-instruction {
+    font-size: 12px; /* Smaller instruction text */
+  }
+}
+
+/* Tablet Responsive Design */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    max-width: 80%; /* Slightly wider container for tablets */
+  }
+
+  .quiz-image {
+    width: 250px; /* Adjust image size for tablets */
+  }
+
+  .quiz-text {
+    font-size: 24px; /* Adjust font size for tablets */
+    line-height: 34px;
+  }
+
+  .start-button {
+    padding: 10px 25px; /* Maintain button padding */
+  }
+
+  .start-instruction {
+    font-size: 13px; /* Adjust instruction text size */
+  }
+}
