@@ -1,6 +1,6 @@
 # Cerdasnih App
 
-<img src="frontend/public/logo+teks.png" alt="Cerdasnih Logo" width="300"/>
+<img src="public/logo+teks.png" alt="Cerdasnih Logo" width="300"/>
 
 ## Project Objective
 The **Cerdasnih App** aims to offer an interactive quiz platform where users can challenge their knowledge across various categories and difficulty levels. The primary focus is on engaging users in an enjoyable and educational experience.
@@ -72,12 +72,12 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 For further questions or technical support, please contact us at [falihrahmat534@gmail.com](mailto:falihrahmat534@gmail.com).
 
-![Beranda Screenshot](frontend/public/screenshoot-homepage.png)
+![Beranda Screenshot](public/screenshoot-homepage.png)
 
-![Login Screenshot](frontend/public/screenshoot-login.png)
+![Login Screenshot](public/screenshoot-login.png)
 
-![Pilihan Kategori Screenshot](frontend/public/screenshoot-categoryselection.png)
+![Pilihan Kategori Screenshot](public/screenshoot-categoryselection.png)
 
-![Kuis Screenshot](frontend/public/screenshoot-quiz.png)
+![Kuis Screenshot](public/screenshoot-quiz.png)
 
-![Hasil Kuis Screenshot](frontend/public/screenshoot-result.png)
+![Hasil Kuis Screenshot](public/screenshoot-result.png)
