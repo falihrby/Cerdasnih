@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Cerdasnih App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="frontend/public/logo+teks.png" alt="Cerdasnih Logo" width="300"/>
 
-## Available Scripts
+## Project Objective
+The **Cerdasnih App** aims to offer an interactive quiz platform where users can challenge their knowledge across various categories and difficulty levels. The primary focus is on engaging users in an enjoyable and educational experience.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Main Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Quiz Challenge:
+- **Category and Difficulty Selection**:
+  Users can choose from a variety of quiz categories (e.g., General Knowledge, Music, History) and select their preferred difficulty level (easy, medium, or hard).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Real-Time Quiz Progress**: 
+  Track quiz progress, including the number of questions completed, remaining time, and overall score.
 
-### `npm test`
+- **Interactive Feedback**: 
+  Users get instant feedback on their answers during the quiz, helping them learn from both correct and incorrect answers.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Dynamic Typing Effect on Home Page:
+- **Rotating Categories**: 
+  The home page displays an engaging typing effect that dynamically shows quiz categories one by one, enticing users to start a new challenge.
 
-### `npm run build`
+### 3. Persistent Quiz Data:
+- **Quiz Auto-Save**:
+  If a user exits the quiz before completion, the application saves the current progress and score, allowing them to resume the quiz later.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Time-Limited Quizzes**: 
+  Quizzes have a time limit to create a competitive and challenging environment. The remaining time is always visible to the user.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 4. Result Summary and Feedback:
+- After completing a quiz, users receive a detailed breakdown of their performance, including the number of correct and incorrect answers, score percentage, and motivational messages based on their performance.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend:
+- **React.js**: 
+  The frontend is built using React.js for a dynamic and responsive user interface.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React Router**: 
+  Enables smooth navigation between pages such as **Home**, **Quiz Categories**, **Login**, and **Results**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **CSS**: 
+  Custom CSS is used to create a consistent and engaging user experience across the application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend:
+- **LocalStorage**: 
+  The application uses the browser's localStorage to persist quiz data and user progress, enabling seamless resumption of quizzes.
 
-## Learn More
+- **Axios**: 
+  Axios is used for making API requests to fetch quiz questions from an external trivia API.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Trivia API:
+- **Open Trivia Database (OpenTDB)**: 
+  The quiz data (questions, answers, and categories) is fetched from OpenTDB, a free-to-use trivia database.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Contribution
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+We welcome contributions from the community. If you'd like to contribute to this project, please open a new issue or submit a pull request after making changes.
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
-### Making a Progressive Web App
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+For further questions or technical support, please contact us at [falihrahmat534@gmail.com](mailto:falihrahmat534@gmail.com).
 
-### Advanced Configuration
+![Beranda Screenshot](frontend/public/screenshoot-homepage.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Login Screenshot](frontend/public/screenshoot-login.png)
 
-### Deployment
+![Pilihan Kategori Screenshot](frontend/public/screenshoot-categoryselection.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Kuis Screenshot](frontend/public/screenshoot-quiz.png)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Hasil Kuis Screenshot](frontend/public/screenshoot-result.png)
