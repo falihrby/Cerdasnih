@@ -51,36 +51,4 @@
   }
 }
 
-/* Additional global styles */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4; /* Light background color */
-}
 
-h1,
-h2,
-h3 {
-  font-weight: 600; /* Semi-bold */
-}
-
-p {
-  font-weight: 400; /* Regular */
-}
-
-/* Utility classes for margins and padding */
-.mt-20 {
-  margin-top: 20px;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
-}
-
-.pt-20 {
-  padding-top: 20px;
-}
-
-.pb-20 {
-  padding-bottom: 20px;
-}

@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import SignUp from './pages/Signup';
 import CategorySelection from './pages/CategorySelection';
@@ -12,26 +12,31 @@ import './App.css';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [categoryId, setCategoryId] = useState(null);
-  const [difficulty, setDifficulty] = useState('easy');
+  const [setCategoryId] = useState(null);
+  const [setDifficulty] = useState('easy');
   const [quizComplete, setQuizComplete] = useState(false);
   const [score, setScore] = useState(0);
 
+  // Handle user login
   const handleLogin = (username) => {
     setIsLoggedIn(true);
   };
 
+  // Handle user logout
   const handleLogout = () => {
     setIsLoggedIn(false);
     setCategoryId(null);
     setQuizComplete(false);
   };
 
+  // Start the quiz
   const startQuiz = (categoryId, difficulty) => {
     setCategoryId(categoryId);
     setDifficulty(difficulty);
+    setQuizComplete(false); // Reset quiz completion when starting a new quiz
   };
 
+  // Handle quiz completion
   const handleQuizComplete = (finalScore) => {
     setScore(finalScore);
     setQuizComplete(true);
@@ -48,36 +53,46 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp onSignUp={handleLogin} />} />
-          {isLoggedIn && (
-            <Route
-              path="/categories"
-              element={<CategorySelection onStartQuiz={startQuiz} />}
-            />
-          )}
-          {isLoggedIn && categoryId && !quizComplete && (
-            <Route
-              path="/quiz"
-              element={
-                <Quiz
-                  categoryId={categoryId}
-                  difficulty={difficulty}
-                  onComplete={handleQuizComplete}
-                />
-              }
-            />
-          )}
-          {isLoggedIn && quizComplete && (
-            <Route
-              path="/result"
-              element={
+          
+          {/* Route to category selection */}
+          <Route
+            path="/categories"
+            element={
+              isLoggedIn ? (
+                <CategorySelection onStartQuiz={startQuiz} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+          
+          {/* Route to quiz page */}
+          <Route
+            path="/quiz"
+            element={
+              isLoggedIn ? (
+                <Quiz />
+              ) : (
+                <Navigate to="/categories" />
+              )
+            }
+          />
+          
+          {/* Route to result page */}
+          <Route
+            path="/result"
+            element={
+              isLoggedIn && quizComplete ? (
                 <Result
                   score={score}
-                  totalQuestions={10}
+                  totalQuestions={10}  // Assuming a fixed number of questions for now
                   onRetake={() => setQuizComplete(false)}
                 />
-              }
-            />
-          )}
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
         </Routes>
       </div>
     </Router>

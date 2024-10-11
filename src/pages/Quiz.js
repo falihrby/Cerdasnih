@@ -1,45 +1,93 @@
-import React, { useState } from 'react';
-import './Quiz.css'; // Assuming you have a CSS file for styling
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import './Quiz.css';
 
-const Quiz = ({ categoryId, difficulty, onComplete }) => {
-  const [showPopup, setShowPopup] = useState(false); // State to control the popup
+const Quiz = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleStartQuiz = () => {
-    if (categoryId) {
-      // Logic to start the quiz
-      console.log(`Starting quiz with category: ${categoryId} and difficulty: ${difficulty}`);
+  // Call hooks unconditionally
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+
+  // Destructure state passed via the navigate
+  const { categoryId, difficulty, questions, categoryName } = location.state || {};
+
+  // If required state is missing, redirect using `useEffect`
+  useEffect(() => {
+    if (!categoryId || !difficulty || !questions) {
+      navigate('/categories');
+    }
+  }, [categoryId, difficulty, questions, navigate]);
+
+  // If state is still loading (before redirect happens), return a loading screen
+  if (!categoryId || !difficulty || !questions) {
+    return <div>Loading quiz...</div>; 
+  }
+
+  // Access the current question safely
+  const currentQuestion = questions[currentQuestionIndex];
+
+  // Check if the current question is valid before proceeding
+  if (!currentQuestion || !currentQuestion.incorrect_answers || !currentQuestion.correct_answer) {
+    return <div>Error: Invalid question data.</div>; // Fallback UI in case the data is invalid
+  }
+
+  const shuffledAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer].sort();
+  const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      setShowPopup(true); // Show popup if category is not selected
+      navigate('/result', { state: { score, totalQuestions: questions.length } });
     }
   };
 
-  const closePopup = () => {
-    setShowPopup(false); // Close the popup
+  const handleAnswer = (isCorrect) => {
+    if (isCorrect) setScore(score + 1);
+    handleNextQuestion();
+  };
+
+  const backgroundStyle = {
+    backgroundColor: '#FFFBF9',
+    backgroundImage: 'url("/background.png")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   };
 
   return (
-    <div className="quiz-container">
-      <h1>Quiz</h1>
-      <p>Category: {categoryId ? categoryId : 'Not selected'}</p>
-      <p>Difficulty: {difficulty}</p>
-      
-      {/* Start Quiz Button */}
-      <button className="start-quiz-button" onClick={handleStartQuiz}>
-        Start Quiz
-      </button>
+    <div style={backgroundStyle}>
+      <div className="quiz-layout">
+        <div className="quiz-container">
+          <h3>Pertanyaan {currentQuestionIndex + 1} dari {questions.length}</h3>
+          <p dangerouslySetInnerHTML={{ __html: currentQuestion.question }}></p>
+          <div className="answers">
+            {shuffledAnswers.map((answer, index) => (
+              <button
+                key={index}
+                onClick={() => handleAnswer(answer === currentQuestion.correct_answer)}
+                dangerouslySetInnerHTML={{ __html: answer }}
+                className="answer-btn"
+              />
+            ))}
+          </div>
 
-      {/* Modal Popup */}
-      {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-content">
-            <h2>Warning</h2>
-            <p>Please select a category to start the quiz!</p>
-            <button onClick={closePopup} className="close-popup-button">
-              Close
-            </button>
+          <div className="progress-bar-container">
+            <div className="progress-bar" style={{ width: `${progressPercentage}%` }}></div>
           </div>
         </div>
-      )}
+
+        <div className="explanation-card">
+          <p>Kategori : <strong>{categoryName}</strong></p>
+          <p>Tingkat Kesulitan : <strong>{difficulty}</strong></p>
+        </div>
+      </div>
     </div>
   );
 };

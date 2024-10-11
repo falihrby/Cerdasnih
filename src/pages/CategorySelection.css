@@ -56,7 +56,7 @@
 
 /* Updated label styling */
 .category-selection-label {
-  font-size: 13px;
+  font-size: 14px;
   color: #263238;
   margin-bottom: 6px;
   text-align: left;
@@ -69,27 +69,6 @@
   margin-left: 8px;
   cursor: pointer;
   color: #fc8c63;
-}
-
-/* Tooltip styling */
-.tooltip {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  background: #fff;
-  color: #000;
-  padding: 8px;
-  border: 1.5px solid #fc8c63;
-  border-radius: 5px;
-  font-size: 12px;
-  z-index: 10;
-  width: 230px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  line-height: 1.4;
-}
-
-.tooltip p {
-  margin: 4px 0;
 }
 
 /* Input fields for category and difficulty */
@@ -136,9 +115,9 @@
 
 /* Signup prompt */
 .category-prompt {
-  margin-top: 20px;
   font-size: 13px;
   color: #787878;
+  padding: 0;
 }
 
 /* Responsive design */

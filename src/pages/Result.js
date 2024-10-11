@@ -1,22 +1,17 @@
-// src/components/Result.js
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import './Result.css';
 
-const Result = ({ score, totalQuestions, onRetake }) => {
-  const percentage = (score / totalQuestions) * 100;
-
-  const getFeedback = () => {
-    if (percentage <= 20) return 'Semangat! Percobaan membuat kamu lebih baik.';
-    if (percentage <= 40) return 'Awal Baik! Dengan latihan lebih banyak, skor akan semakin tinggi.';
-    if (percentage <= 60) return 'Hebat! Coba lagi untuk mencapai skor yang lebih tinggi.';
-    if (percentage <= 80) return 'Hampir Sempurna! Hanya beberapa langkah lagi untuk mencapai puncak.';
-    return 'Luar Biasa! Kamu benar-benar menguasai topik ini.';
-  };
+const Result = () => {
+  const location = useLocation();
+  const { score, totalQuestions } = location.state;
+  const navigate = useNavigate();
 
   return (
-    <div>
-      <h2>Your Score: {score}/{totalQuestions}</h2>
-      <p>{getFeedback()}</p>
-      <button onClick={onRetake}>Retake Quiz</button>
+    <div className="result-container">
+      <h1>Quiz Completed!</h1>
+      <p>Your Score: {score} / {totalQuestions}</p>
+      <button onClick={() => navigate('/')} className="retry-btn">Try Again</button>
     </div>
   );
 };
