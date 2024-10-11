@@ -1,6 +1,6 @@
 # Cerdasnih App
 
-<img src="public/logo+teks.png" alt="Cerdasnih Logo" width="300"/>
+<img src="public/logo-cerdasnih.png" alt="Cerdasnih Logo" width="300"/>
 
 ## Project Objective
 The **Cerdasnih App** aims to offer an interactive quiz platform where users can challenge their knowledge across various categories and difficulty levels. The primary focus is on engaging users in an enjoyable and educational experience.
