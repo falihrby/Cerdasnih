@@ -111,9 +111,9 @@ const Signup = () => {
 
           <form onSubmit={handleSignup} className="signup-form">
             <InputField
-              label="Nama lengkap"
+              label="Nama"
               type="text"
-              placeholder="Masukkan nama lengkap..."
+              placeholder="Masukkan nama..."
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
