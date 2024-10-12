@@ -31,7 +31,7 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Navigate to home page when clicking the logo */}
         <NavLink className="navbar-brand" to="/">
-          <img src="/logo+teks.png" alt="Logo" className="navbar-logo" />
+          <img src="/logo-cerdasnih.png" alt="Logo" className="navbar-logo" />
         </NavLink>
         <div className="navbar-menu">
           <ul className="navbar-nav">
