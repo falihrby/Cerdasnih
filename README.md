@@ -5,6 +5,8 @@
 ## Project Objective
 The **Cerdasnih App** aims to offer an interactive quiz platform where users can challenge their knowledge across various categories and difficulty levels. The primary focus is on engaging users in an enjoyable and educational experience.
 
+🔗 **Try it now:** [Cerdasnih App](https://cerdasnih.vercel.app/)
+
 ---
 
 ## Main Features
